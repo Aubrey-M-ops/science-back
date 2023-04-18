@@ -1,4 +1,4 @@
-var mysql = require('mysql');
+var mysql = require('mysql2');
 var config = require('../config/default.js')
 
 var pool  = mysql.createPool({
@@ -15,7 +15,7 @@ class Mysql {
     }
     query () {
       return new Promise((resolve, reject) => {
-        pool.query('SELECT * from taobao', function (error, results, fields) {
+        pool.query('SELECT * from science.news', function (error, results, fields) {
             if (error) {
                 throw error
             };

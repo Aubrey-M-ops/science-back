@@ -1,12 +1,12 @@
 const config = {
     // 启动端口
-    port: 3000,
+    port: 3001,
   
     // 数据库配置
     database: {
-      DATABASE: 'ceshi',
+      DATABASE: 'science',
       USERNAME: 'root',
-      PASSWORD: '1234',
+      PASSWORD: 'lmh327628.',
       PORT: '3306',
       HOST: 'localhost'
     }
