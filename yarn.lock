@@ -252,6 +252,11 @@
     "type-is" "^1.6.16"
     "vary" "^1.1.2"
 
+"koa2-cors@^2.0.6":
+  "integrity" "sha512-JRCcSM4lamM+8kvKGDKlesYk2ASrmSTczDtGUnIadqMgnHU4Ct5Gw7Bxt3w3m6d6dy3WN0PU4oMP43HbddDEWg=="
+  "resolved" "https://registry.npmjs.org/koa2-cors/-/koa2-cors-2.0.6.tgz"
+  "version" "2.0.6"
+
 "long@^5.2.1":
   "integrity" "sha512-lcHwpNoggQTObv5apGNCTdJrO69eHOZMi4BNC+rTLER8iHAqGrUVeLh/irVIM7zTw2bOXA8T6uNPeujwOLg/2Q=="
   "resolved" "https://registry.npmjs.org/long/-/long-5.2.3.tgz"
