@@ -1,4 +1,6 @@
-INSERT INTO `science`.`news` (`nodeId`, `id`, `name`,`type`, `level`, `award`,`year`,`file`, `summary`) 
- VALUES("39","292","多链融合的非CO2温室气体核算区块链体系架构与交易并发处理研究","行业协会奖","一等奖","自然科学奖","2022","http://silk-web.dms.heyfuture.com.cn//file/1/2023/03/10/e920ca38-e2df-470c-936c-56813514fede.pdf","");
-INSERT INTO `science`.`news` (`nodeId`, `id`, `name`,`type`, `level`, `award`,`year`,`file`, `summary`) 
- VALUES("39","291","高级氧化法烟气多污染协同控制理论与技术研究","省部级","","自然科学奖","2023","http://silk-web.dms.heyfuture.com.cn//file/1/2023/03/10/17f8c881-8c3b-4bf5-9530-2052478a721f.pdf","");
+INSERT INTO `science`.`achievements` (`nodeId`, `id`,  `name`,`keywords`,`type`, `team`, `size`,`photo`,`url`,`year`,`summary`) 
+ VALUES("22","3","多链融合的非CO2温室气体核算区块链体系架构与交易并发处理研究","","","","","","","","");
+INSERT INTO `science`.`achievements` (`nodeId`, `id`,  `name`,`keywords`,`type`, `team`, `size`,`photo`,`url`,`year`,`summary`) 
+ VALUES("22","2","国科大研究团队发现青藏高原高寒草甸退化加快了土壤线虫群落的时间周转率","","","","1MB","","","2023","2023年1月5日，中国科学院大学资源与环境学院研究团队在国际知名环境微生物学期刊Applied and Environmental Microbiology上发表题为“Plant Community Associates with Rare Rather than Abundant ...");
+INSERT INTO `science`.`achievements` (`nodeId`, `id`,  `name`,`keywords`,`type`, `team`, `size`,`photo`,`url`,`year`,`summary`) 
+ VALUES("22","1","国科大研究团队发现青藏高原高寒草甸退化加快了土壤线虫群落的时间周转率","","待定一","国科大","22kb","","","2022","2023年1月5日，中国科学院大学资源与环境学院研究团队在国际知名环境微生物学期刊Applied and Environmental Microbiology上发表题为“Plant Community Associates with Rare Rather than Abundant ...");

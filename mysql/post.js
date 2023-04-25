@@ -10,6 +10,12 @@ exports.findNewsByNodeName = (nodeName) => {
   return query(_sql);
 };
 
+exports.findResultsByNodeId = (nodeId) => {
+  let _sql = `select * from science.achievements where nodeId=${nodeId};`;
+  return query(_sql);
+};
+
+
 exports.findSectionsByNodeId = (nodeId) => {
   let _sql = `select * from science.sections where nodeId=${nodeId};`;
   return query(_sql);
