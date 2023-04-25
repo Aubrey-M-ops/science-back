@@ -13,4 +13,7 @@ router.get("/achievementsNode", controller.getResult);
 //科研成果筛选
 router.get("/test", controller.getFilterResults);
 
+//科研成果筛选
+router.get("/test1", controller.getSelectItems);
+
 module.exports = router;

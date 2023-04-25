@@ -6,7 +6,7 @@ exports.findResultsByNodeId = (nodeId) => {
   return query(_sql);
 };
 
-//按作者筛选
+//按条件筛选
 exports.findResultsByfilter = (nodeId, filter_params) => {
   let filters = "";
   Object.keys(filter_params).forEach((param) => {
@@ -22,5 +22,16 @@ exports.findResultsByfilter = (nodeId, filter_params) => {
       WHERE nodeId=${nodeId} ${filters}
       group by id
   )`;
+  return query(_sql);
+};
+
+//获取对应field下的所有项
+exports.findItemsByField = (nodeId, fieldName) => {
+  let _sql = `      
+      select distinct ${fieldName}
+      FROM science.achievements
+      INNER JOIN science.achievements_to_authors ON science.achievements.id = science.achievements_to_authors.achievement_id
+      INNER JOIN science.authors ON science.achievements_to_authors.author_id = science.authors.author_id
+      WHERE nodeId=${nodeId}`;
   return query(_sql);
 };

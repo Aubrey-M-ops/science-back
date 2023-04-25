@@ -87,10 +87,16 @@ exports.getFilterResults = async (ctx) => {
   ctx.body = {
     data: [],
   };
-  // const { nodeId, params } = ctx.req.body;
-  const nodeId = 17,
-    params = { name: "Abiotic and biotic controls of soil dissolved organic nitrogen along a precipitation gradient on the Tibetan plateau, PLANT AND SOIL, 2021, 通讯作者." };
+  const { nodeId, params } = ctx.req.body;
   await resultModel.findResultsByfilter(nodeId, params).then((achievements) => {
     ctx.body.data = achievements;
+  });
+};
+
+//获取下拉项
+exports.getSelectItems = async (ctx) => {
+  const { nodeId, fieldName } = ctx.req.body;
+  await resultModel.findItemsByField(nodeId, fieldName).then((achievements) => {
+    ctx.body = achievements.map((item) => item[fieldName]);
   });
 };
