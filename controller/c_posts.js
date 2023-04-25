@@ -1,4 +1,5 @@
-const model = require("../mysql/post");
+const postModel = require("../mysql/post");
+const resultModel = require("../mysql/results");
 
 //首页信息
 exports.getPosts = async (ctx) => {
@@ -11,7 +12,7 @@ exports.getPosts = async (ctx) => {
   };
 
   //获取置顶新闻
-  await model
+  await postModel
     .findNewsByNodeId(3)
     .then((topNews) => {
       ctx.body.bannerData = { data: topNews };
@@ -22,10 +23,10 @@ exports.getPosts = async (ctx) => {
 
   //获取首页新闻(丝路新闻、科考动态、科考实录)
   for (i = 0; i < categories.length; i++) {
-    await model.findSectionsByNodeId(categories[i]).then((siluSection) => {
+    await postModel.findSectionsByNodeId(categories[i]).then((siluSection) => {
       ctx.body.data.push(siluSection[0]);
     });
-    await model.findNewsByNodeId(categories[i]).then((news) => {
+    await postModel.findNewsByNodeId(categories[i]).then((news) => {
       ctx.body.data[i].data = news;
     });
   }
@@ -42,7 +43,7 @@ exports.getDynamic = async (ctx) => {
   };
 
   //获取置顶动态
-  await model
+  await postModel
     .findNewsByNodeId(28)
     .then((topNews) => {
       ctx.body.topData = { data: [topNews[0]] };
@@ -53,10 +54,10 @@ exports.getDynamic = async (ctx) => {
 
   //获取全部动态
   for (i = 0; i < categories.length; i++) {
-    await model.findSectionsByNodeId(categories[i]).then((section) => {
+    await postModel.findSectionsByNodeId(categories[i]).then((section) => {
       ctx.body.data.push(section[0]);
     });
-    await model.findNewsByNodeId(categories[i]).then((news) => {
+    await postModel.findNewsByNodeId(categories[i]).then((news) => {
       ctx.body.data[i].data = news;
     });
   }
@@ -71,13 +72,25 @@ exports.getResult = async (ctx) => {
     data: [],
   };
 
-  //获取全部科研成果
   for (i = 0; i < categories.length; i++) {
-    await model.findSectionsByNodeId(categories[i]).then((section) => {
+    await postModel.findSectionsByNodeId(categories[i]).then((section) => {
       ctx.body.data.push(section[0]);
     });
-    await model.findResultsByNodeId(categories[i]).then((news) => {
+    await postModel.findResultsByNodeId(categories[i]).then((news) => {
       ctx.body.data[i].data = news;
     });
   }
+};
+
+//筛选
+exports.getFilterResults = async (ctx) => {
+  ctx.body = {
+    data: [],
+  };
+  // const { nodeId, params } = ctx.req.body;
+  const nodeId = 17,
+    params = { name: "Abiotic and biotic controls of soil dissolved organic nitrogen along a precipitation gradient on the Tibetan plateau, PLANT AND SOIL, 2021, 通讯作者." };
+  await resultModel.findResultsByfilter(nodeId, params).then((achievements) => {
+    ctx.body.data = achievements;
+  });
 };

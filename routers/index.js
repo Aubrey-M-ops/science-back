@@ -10,6 +10,7 @@ router.get("/dynamicNode", controller.getDynamic);
 //科研成果
 router.get("/achievementsNode", controller.getResult);
 
-
+//科研成果筛选
+router.get("/test", controller.getFilterResults);
 
 module.exports = router;
