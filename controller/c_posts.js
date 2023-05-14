@@ -76,7 +76,7 @@ exports.getResult = async (ctx) => {
     await postModel.findSectionsByNodeId(categories[i]).then((section) => {
       ctx.body.data.push(section[0]);
     });
-    await postModel.findResultsByNodeId(categories[i]).then((news) => {
+    await resultModel.findResultsByNodeId(categories[i]).then((news) => {
       ctx.body.data[i].data = news;
     });
   }
